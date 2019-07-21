@@ -1,0 +1,19 @@
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/user/bin/jupyter-notebook --no-browser
+User=kic
+Group=kic
+WorkingDirectory=/home/kic/notebooks
+Restart=always
+RestartSec=10
+# there's probably a better way to do this part
+Environment=PATH=/home/kic/bin:/usr/lib/cuda-10.0/bin/
+Environment=LD_LIBRARY_PATH=/usr/lib/cuda-10.0/lib64
+Environment=CUDA_HOME=/usr/lib/cuda-10.0/
+
+[Install]
+WantedBy=multi-user.target

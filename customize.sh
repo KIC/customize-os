@@ -8,15 +8,28 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install software
-sudo apt install vim dconf-editor 
-sudo apt install snapd google-chrome-stable
-sudo apt install python3-pip python3-notebook python3-nbformat || true
-sudo apt install tensorflow-cuda-latest
+sudo apt install -y vim dconf-editor 
+sudo apt install -y snapd google-chrome-stable
+
+# install python stuff
+sudo apt install -y python3-pip
+sudo apt install -y tensorflow-cuda-latest
+sudo apt install -y jupyter-notebook
+jupyter-notebook --generate-config
+echo "c.NotebookApp.token='kic'" >> ~/.jupyter/jupyter_notebook_config.py 
+sudo cp jupyter.service /etc/systemd/system
+sudo systemctl enable jupyter.service 
+sudo service jupyter start
+
+# install python modules
+pip3 install pandas yfinance joblib
 
 
 # customize OS
-# set scroll direction like on smart phones
+# set scroll direction like on smart phones, increase pointer speed and disable tap and drag
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+gsettings set org.gnome.desktop.peripherals.touchpad speed "0.55"
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
 # move min,max,close to the right
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
 # do not collapse the windows of the same application
