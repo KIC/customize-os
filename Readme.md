@@ -37,14 +37,16 @@ nvme1n1 238.5G linux_raid_member disk
 └─md0   476.7G                   raid0
 ```
 
-### Start Installer
+Now start the Installer from the Launcher
+
+### In the Installer
 Keep the shell terminal open and start the Installer (via Launcher) and choose "Advanced Installation" (not the "Clean Install"). You should see 3 devices, each individual disk and the raid you have just created. Create a gpt partiton table and a full size btrfs partition on the raid by using the gparted tool. 
 
 Then you need to select one of the two 500MiB partitions on one of the individual disk and use it as `/boot` and use the full raid device as root `/`. 
 
 Install the system on it -> but whatever you do, DO NOT RESTART after the finished installation!
 
-### back in the terminal of your still running Demo Session
+### Back in the terminal of your still running Demo Session
 Now we need to make the installation to know about the raid. Therefore we first mount the raid in the Demo-Session:
 
 ```
