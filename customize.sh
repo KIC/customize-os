@@ -11,6 +11,7 @@ sudo apt-get upgrade
 sudo apt install vim dconf-editor 
 sudo apt install snapd google-chrome-stable
 sudo apt install python3-pip python3-notebook python3-nbformat || true
+sudo apt install tensorflow-cuda-latest
 
 
 # customize OS
@@ -34,7 +35,7 @@ echo "keycode 112=Home" > ~/.Xmodmap
 echo "keycode 117=End" >>  ~/.Xmodmap	
 echo "keycode 110=Prior" >>  ~/.Xmodmap
 echo "keycode 115=Next" >>  ~/.Xmodmap
-sudo bash -c 'echo "xmodmap ~/.Xmodmap" >> /etc/X11/xinit/xinitrc'
+sudo bash -c 'echo "sleep 2 && xmodmap ~/.Xmodmap" > /etc/X11/Xsession.d/99xmodmap'
 
 # make python3 the default
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 0
