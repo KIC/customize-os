@@ -19,6 +19,11 @@ sudo apt install tensorflow-cuda-latest
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 # move min,max,close to the right
 gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'
+# do not collapse the windows of the same application
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "[]"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
 # do not send display to sleep ever, use a short cut instead
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
