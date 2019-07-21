@@ -34,7 +34,7 @@ echo "keycode 112=Home" > ~/.Xmodmap
 echo "keycode 117=End" >>  ~/.Xmodmap	
 echo "keycode 110=Prior" >>  ~/.Xmodmap
 echo "keycode 115=Next" >>  ~/.Xmodmap
-sudo cp ~/.Xmodmap /etc/X11/Xmodmap
+sudo bash -c 'echo "xmodmap ~/.Xmodmap" >> /etc/X11/xinit/xinitrc'
 
 # make python3 the default
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 0
