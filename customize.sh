@@ -30,12 +30,20 @@ cd -
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
 sudo apt update
-sudo apt -y install code
+sudo apt install -y code
+sudo apt install -y ubuntu-make 
+
+# install DBeaver
+sudo apt install -y dbeaver-ce
 
 # install Intellij
 sudo add-apt-repository ppa:mmk2410/intellij-idea
 sudo apt-get update
 sudo apt -y install intellij-idea-community 
+
+# install pycharm
+sudo snap install pycharm-community --classic
+echo type: snap run pycharm-community then add the icon to the launcher
 
 # install python stuff
 sudo apt install -y python3-pip
@@ -47,6 +55,7 @@ sudo cp jupyter.service /etc/systemd/system
 sudo systemctl enable jupyter.service 
 sudo service jupyter start
 pip3 install 'prompt-toolkit==1.0.15' # fix notebook error: https://www.reddit.com/r/Python/comments/94b8rz/ipython_cannot_import_name_create_prompt/
+install -D custom.css ~/.jupyter/custom/custom.css
 
 # install python modules
 pip3 install pandas pandas-ml yfinance joblib matplotlib seaborn TA-Lib
