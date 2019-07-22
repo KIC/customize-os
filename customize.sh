@@ -14,6 +14,17 @@ sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm 
 sudo apt install -y nodejs
 sudo apt install -y r-base
+pip3 install undervolt
+
+# install ta-lib
+cd /tmp
+wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+tar -xzf ta-lib-0.4.0-src.tar.gz
+cd ta-lib/
+./configure --prefix=/usr
+make
+sudo make install
+cd -
 
 # install VSCode
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -35,9 +46,11 @@ echo "c.NotebookApp.token='kic'" >> ~/.jupyter/jupyter_notebook_config.py
 sudo cp jupyter.service /etc/systemd/system
 sudo systemctl enable jupyter.service 
 sudo service jupyter start
+pip3 install 'prompt-toolkit==1.0.15' # fix notebook error: https://www.reddit.com/r/Python/comments/94b8rz/ipython_cannot_import_name_create_prompt/
 
 # install python modules
-pip3 install pandas yfinance joblib
+pip3 install pandas pandas-ml yfinance joblib matplotlib seaborn TA-Lib
+pip3 install scikit-learn pycuda scikit-cuda
 
 # install awsudo
 echo "install to /home/kic/bin/awsudo"
