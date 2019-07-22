@@ -9,12 +9,16 @@ sudo apt-get upgrade
 
 # install software
 sudo apt install -y software-properties-common apt-transport-https curl
-sudo apt install -y vim dconf-editor 
+sudo apt install -y vim dconf-editor imagemagick
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm 
 sudo apt install -y nodejs
 sudo apt install -y r-base
 pip3 install undervolt
+
+# install text cleaner
+wget 'http://www.fmwconcepts.com/imagemagick/downloadcounter.php?scriptname=textcleaner&dirname=textcleaner' -O ~/bin/textcleaner
+chmod +x ~/bin/textcleaner
 
 # install ta-lib
 cd /tmp
@@ -60,6 +64,9 @@ install -D custom.css ~/.jupyter/custom/custom.css
 # install python modules
 pip3 install pandas pandas-ml yfinance joblib matplotlib seaborn TA-Lib
 pip3 install scikit-learn pycuda scikit-cuda
+
+# append bash.rc for path and aliases
+echo "export PATH=\$PATH:/home/$USER/bin" >> ~/.bashrc
 
 # install awsudo
 echo "install to /home/kic/bin/awsudo"
