@@ -8,8 +8,23 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install software
+sudo apt install -y software-properties-common apt-transport-https curl
 sudo apt install -y vim dconf-editor 
 sudo apt install -y snapd google-chrome-stable
+sudo apt install -y openjdk-8-jdk visualvm 
+sudo apt install -y nodejs
+sudo apt install -y r-base
+
+# install VSCode
+curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt -y install code
+
+# install Intellij
+sudo add-apt-repository ppa:mmk2410/intellij-idea
+sudo apt-get update
+sudo apt -y install intellij-idea-community 
 
 # install python stuff
 sudo apt install -y python3-pip
@@ -23,6 +38,10 @@ sudo service jupyter start
 
 # install python modules
 pip3 install pandas yfinance joblib
+
+# install awsudo
+echo "install to /home/kic/bin/awsudo"
+bash <(curl https://raw.githubusercontent.com/makethunder/awsudo/master/install)
 
 
 # customize OS
@@ -84,3 +103,5 @@ mkdir ~/data
 mkdir ~/data/work
 mkdir ~/data/private
 
+# clean up
+sudo apt autoremove
