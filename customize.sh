@@ -68,12 +68,8 @@ gsettings set org.gnome.desktop.session idle-delay 0
 #gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 
 # exchange page up/down with home/end keys
-echo "keycode 112=Home" > ~/.Xmodmap
-echo "keycode 117=End" >>  ~/.Xmodmap	
-echo "keycode 110=Prior" >>  ~/.Xmodmap
-echo "keycode 115=Next" >>  ~/.Xmodmap
-sudo bash -c 'echo "sleep 2 && xmodmap ~/.Xmodmap" > /etc/X11/Xsession.d/99xmodmap'
-sudo bash -c 'xmodmap ~/.Xmodmap" >> ~/.bashrc'
+sudo cp /usr/share/X11/xkb/symbols/pc /usr/share/X11/xkb/symbols/pc.bak
+sudo cp pc /usr/share/X11/xkb/symbols/
 
 # make python3 the default
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 0
