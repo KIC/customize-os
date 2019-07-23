@@ -8,14 +8,22 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install software
-sudo apt install -y software-properties-common apt-transport-https curl flameshot
+sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator
 sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
-sudo apt install -y openjdk-8-jdk visualvm 
+sudo apt install -y openjdk-8-jdk visualvm maven
 sudo apt install -y nodejs
 sudo apt install -y r-base
 pip3 install undervolt
 
+# install wine
+curl -sSL https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+sudo apt-key add winehq.key
+sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ disco main'
+sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
+sudo apt-get update
+sudo apt install -y wine-devel-amd64
+sudo apt install --install-recommends winehq-devel
 
 # install text cleaner
 wget 'http://www.fmwconcepts.com/imagemagick/downloadcounter.php?scriptname=textcleaner&dirname=textcleaner' -O ~/bin/textcleaner
@@ -49,6 +57,8 @@ sudo apt install -y dbeaver-ce
 sudo add-apt-repository ppa:mmk2410/intellij-idea
 sudo apt-get update
 sudo apt -y install intellij-idea-community 
+# reset java8 as default jre
+sudo update-java-alternatives --jre-headless --jre --set java-1.8.0-openjdk-amd64
 
 # install pycharm
 sudo snap install pycharm-community --classic
@@ -72,10 +82,12 @@ pip3 install scikit-learn pycuda scikit-cuda
 
 # append bash.rc for path and aliases
 echo "export PATH=\$PATH:/home/$USER/bin" >> ~/.bashrc
+echo 'export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Xss300M"' >> ~/.bashrc 
 
 # install awsudo
 echo "install to /home/kic/bin/awsudo"
 bash <(curl https://raw.githubusercontent.com/makethunder/awsudo/master/install)
+sudo apt install -y awscli
 
 
 # customize OS
