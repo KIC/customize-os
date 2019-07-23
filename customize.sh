@@ -8,13 +8,14 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install software
-sudo apt install -y software-properties-common apt-transport-https curl
-sudo apt install -y vim dconf-editor imagemagick
+sudo apt install -y software-properties-common apt-transport-https curl flameshot
+sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm 
 sudo apt install -y nodejs
 sudo apt install -y r-base
 pip3 install undervolt
+
 
 # install text cleaner
 wget 'http://www.fmwconcepts.com/imagemagick/downloadcounter.php?scriptname=textcleaner&dirname=textcleaner' -O ~/bin/textcleaner
@@ -28,7 +29,11 @@ cd ta-lib/
 ./configure --prefix=/usr
 make
 sudo make install
-cd -
+cd ~
+
+# symlink annoing uppercase folders
+ln -s Downloads downloads
+ln -s Documents files
 
 # install VSCode
 curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -130,3 +135,6 @@ mkdir ~/data/private
 
 # clean up
 sudo apt autoremove
+
+# install topicons
+firefox https://extensions.gnome.org/extension/1031/topicons/
