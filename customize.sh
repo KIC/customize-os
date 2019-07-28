@@ -3,12 +3,15 @@
 # hints
 echo "restore ~/.ssh files from backup, chmod 400 them and execute ssh-add"
 
+# disable bluetooth
+sudo cp rc.local /etc/
+
 # update system
 sudo apt-get update
 sudo apt-get upgrade
 
 # install software
-sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator
+sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator tlp
 sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm maven
@@ -67,7 +70,10 @@ echo type: snap run pycharm-community then add the icon to the launcher
 
 # install python stuff
 sudo apt install -y python3-pip
+# install tensorflow cuda
 sudo apt install -y tensorflow-cuda-latest
+echo 'export PYTHONPATH=/usr/lib/tensorflow/lib/python3.7:$PYTHONPATH' | sudo tee -a /etc/profile.d/system76-cuda.sh
+# install jupyther notebook
 sudo apt install -y jupyter-notebook
 jupyter-notebook --generate-config
 echo "c.NotebookApp.token='kic'" >> ~/.jupyter/jupyter_notebook_config.py 
@@ -110,6 +116,9 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 0
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
 gsettings set org.gnome.desktop.session idle-delay 0
+# disable soundeffects
+gsettings set org.gnome.desktop.sound event-sounds false
+
 # sh -c 'sleep 0.3 && xset dpms force off'
 # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
 #gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name "Suspend"
@@ -154,3 +163,7 @@ sudo apt autoremove
 
 # install topicons
 firefox https://extensions.gnome.org/extension/1031/topicons/
+
+# indicate restart
+echo "sudo shutdown -r now"
+

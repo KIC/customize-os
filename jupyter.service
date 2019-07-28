@@ -14,6 +14,7 @@ RestartSec=10
 Environment=PATH=/home/kic/bin:/usr/lib/cuda-10.0/bin/
 Environment=LD_LIBRARY_PATH=/usr/lib/cuda-10.0/lib64
 Environment=CUDA_HOME=/usr/lib/cuda-10.0/
+Environment=PYTHONPATH=/usr/lib/tensorflow/lib/python3.7
 
 [Install]
 WantedBy=multi-user.target
