@@ -16,6 +16,7 @@ sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm maven
 sudo apt install -y exfat-fuse exfat-utils vlc
+sudo apt install -y pdfshuffler
 sudo apt install -y nodejs
 sudo apt install -y r-base
 pip3 install undervolt
@@ -88,6 +89,7 @@ pip3 install pandas pandas-ml yfinance joblib matplotlib seaborn TA-Lib
 pip3 install scikit-learn pycuda scikit-cuda
 pip3 install spacy && python3 -m spacy download en
 pip3 install pandas-profiling
+pip3 install cachetools
 
 # append bash.rc for path and aliases
 echo 'alias open="xdg-open"' >> ~/.bashrc
