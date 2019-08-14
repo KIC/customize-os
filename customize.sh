@@ -16,6 +16,7 @@ sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm maven
 sudo apt install -y exfat-fuse exfat-utils vlc
+sudo apt install -y docker.io && sudo usermod -aG docker $USER
 sudo apt install -y pdfshuffler
 sudo apt install -y nodejs
 sudo apt install -y r-base
@@ -82,6 +83,7 @@ sudo cp jupyter.service /etc/systemd/system
 sudo systemctl enable jupyter.service 
 sudo service jupyter start
 pip3 install 'prompt-toolkit==1.0.15' # fix notebook error: https://www.reddit.com/r/Python/comments/94b8rz/ipython_cannot_import_name_create_prompt/
+pip3 install jupyter_contrib_nbextensions
 install -D custom.css ~/.jupyter/custom/custom.css
 
 # install python modules
@@ -90,9 +92,11 @@ pip3 install scikit-learn pycuda scikit-cuda
 pip3 install spacy && python3 -m spacy download en
 pip3 install pandas-profiling
 pip3 install cachetools
+pip3 install sortedcontainers
 
 # append bash.rc for path and aliases
 echo 'alias open="xdg-open"' >> ~/.bashrc
+echo 'alias md5="md5sum"' >> ~/.bashrc
 echo "export PATH=\$PATH:/home/$USER/bin" >> ~/.bashrc
 echo 'export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Xss300M"' >> ~/.bashrc 
 
@@ -101,6 +105,8 @@ echo "install to /home/kic/bin/awsudo"
 bash <(curl https://raw.githubusercontent.com/makethunder/awsudo/master/install)
 sudo apt install -y awscli
 
+# Mac compaible md5
+sudo cp md5 /usr/bin/
 
 # customize OS
 # set scroll direction like on smart phones, increase pointer speed and disable tap and drag
@@ -120,6 +126,8 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-tim
 gsettings set org.gnome.desktop.session idle-delay 0
 # disable soundeffects
 gsettings set org.gnome.desktop.sound event-sounds false
+# locate mouse cursor on control key
+gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
 
 # sh -c 'sleep 0.3 && xset dpms force off'
 # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true

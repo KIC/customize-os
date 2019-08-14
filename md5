@@ -1,0 +1,3 @@
+#!/bin/sh
+
+md5sum $1 | cut -f 1,3 -d ' ' | xargs sh -c 'echo "MD5 ($1) = $0"'
