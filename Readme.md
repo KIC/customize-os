@@ -80,7 +80,7 @@ PARTUUID=2a857570-7595-437e-9a18-3f17cf419a9b  /boot/efi  vfat  umask=0077  0  0
 Now you can go back to the installer and reboot. Eventually you are lucky and your Linux boots :-)
 
 ## Customize your PopOS!
-I provide some scripts how I like my PopOS to be set up. Feel free to change then for your needs.
+I provide some scripts how I like my PopOS to be set up. Feel free to change them for your needs.
 
 
 
