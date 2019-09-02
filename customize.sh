@@ -6,6 +6,10 @@ echo "restore ~/.ssh files from backup, chmod 400 them and execute ssh-add"
 # disable bluetooth
 sudo cp rc.local /etc/
 
+# add virtual box repo
+sudo sh -c 'echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list' 
+sudo su -c 'wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | apt-key add -'
+
 # update system
 sudo apt-get update
 sudo apt-get upgrade
@@ -15,6 +19,7 @@ sudo apt install -y software-properties-common apt-transport-https curl flamesho
 sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm maven
+sudo apt install -y virtualbox
 sudo apt install -y exfat-fuse exfat-utils vlc
 sudo apt install -y docker.io && sudo usermod -aG docker $USER
 sudo apt install -y pdfshuffler
@@ -105,6 +110,9 @@ echo "install to /home/kic/bin/awsudo"
 bash <(curl https://raw.githubusercontent.com/makethunder/awsudo/master/install)
 sudo apt install -y awscli
 
+# maven bash complete
+sudo wget https://raw.github.com/dimaj/maven-bash-completion/master/bash_completion.bash --output-document /etc/bash_completion.d/mvn
+
 # Mac compaible md5
 sudo cp md5 /usr/bin/
 
@@ -128,6 +136,8 @@ gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.sound event-sounds false
 # locate mouse cursor on control key
 gsettings set org.gnome.settings-daemon.peripherals.mouse locate-pointer true
+# 24h clock
+gsettings set org.gnome.desktop.interface clock-format 24h
 
 # sh -c 'sleep 0.3 && xset dpms force off'
 # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
