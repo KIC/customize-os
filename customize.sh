@@ -78,7 +78,7 @@ echo type: snap run pycharm-community then add the icon to the launcher
 # install python stuff
 sudo apt install -y python3-pip
 # install tensorflow cuda
-sudo apt install -y tensorflow-cuda-latest
+sudo apt install -y tensorflow-cuda-latest nvtop
 echo 'export PYTHONPATH=/usr/lib/tensorflow/lib/python3.7:$PYTHONPATH' | sudo tee -a /etc/profile.d/system76-cuda.sh
 # install jupyther notebook
 sudo apt install -y jupyter-notebook
