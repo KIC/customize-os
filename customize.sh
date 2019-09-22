@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # install software
-sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator tlp
+sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator tlp tree
 sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
 sudo apt install -y snapd google-chrome-stable
 sudo apt install -y openjdk-8-jdk visualvm maven
@@ -92,12 +92,16 @@ pip3 install jupyter_contrib_nbextensions
 install -D custom.css ~/.jupyter/custom/custom.css
 
 # install python modules
+pip3 install Cython
 pip3 install pandas pandas-ml yfinance joblib matplotlib seaborn TA-Lib
 pip3 install scikit-learn pycuda scikit-cuda
 pip3 install spacy && python3 -m spacy download en
 pip3 install pandas-profiling
 pip3 install cachetools
 pip3 install sortedcontainers
+pip3 install xgboost
+pip3 install keras-rectified-adam
+pip3 install minisom
 
 # append bash.rc for path and aliases
 echo 'alias open="xdg-open"' >> ~/.bashrc
