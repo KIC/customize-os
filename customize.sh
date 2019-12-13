@@ -6,6 +6,10 @@ echo "restore ~/.ssh files from backup, chmod 400 them and execute ssh-add"
 # disable bluetooth
 sudo cp rc.local /etc/
 
+# disable packakit
+sudo systemctl stop packagekit
+sudo systemctl disable packagekit
+
 # add virtual box repo
 sudo sh -c 'echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib" >> /etc/apt/sources.list.d/virtualbox.list' 
 sudo su -c 'wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc | apt-key add -'
@@ -107,7 +111,7 @@ pip3 install minisom
 echo 'alias open="xdg-open"' >> ~/.bashrc
 echo 'alias md5="md5sum"' >> ~/.bashrc
 echo "export PATH=\$PATH:/home/$USER/bin" >> ~/.bashrc
-echo 'export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Xss300M"' >> ~/.bashrc 
+echo 'export JAVA_TOOL_OPTIONS="-Didea.junit.message.length.threshold=10000000 -Dfile.encoding=UTF8 -Xss300M"' >> ~/.bashrc 
 
 # install awsudo
 echo "install to /home/kic/bin/awsudo"
