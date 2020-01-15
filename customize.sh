@@ -18,6 +18,10 @@ sudo su -c 'wget -q -O- http://download.virtualbox.org/virtualbox/debian/oracle_
 sudo apt-get update
 sudo apt-get upgrade
 
+# install fish shell
+sudo apt install fish
+chsh -s to /usr/local/bin/fish
+
 # install software
 sudo apt install -y software-properties-common apt-transport-https curl flameshot terminator tlp tree
 sudo apt install -y vim dconf-editor imagemagick tesseract-ocr
