@@ -92,7 +92,7 @@ echo 'export PYTHONPATH=/usr/lib/tensorflow/lib/python3.7:$PYTHONPATH' | sudo te
 sudo apt install -y jupyter-notebook
 jupyter-notebook --generate-config
 echo "c.NotebookApp.token='kic'" >> ~/.jupyter/jupyter_notebook_config.py 
-sudo cp jupyter.service /etc/systemd/system
+sudo cp jupyter.service /etc/systemd/system/
 sudo systemctl enable jupyter.service 
 sudo service jupyter start
 pip3 install 'prompt-toolkit==1.0.15' # fix notebook error: https://www.reddit.com/r/Python/comments/94b8rz/ipython_cannot_import_name_create_prompt/
