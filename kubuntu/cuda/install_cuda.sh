@@ -10,8 +10,9 @@ sudo apt-get install nvidia-driver-440 nvidia-cuda-*
 git clone https://github.com/NVIDIA/cuda-samples.git
 sudo ln -s /usr/lib/nvidia-cuda-toolkit/ /usr/local/cuda
 
-cd cuda_samples
+cd "$DIR/cuda-samples"
 make || true
 
-#./bin/x86_64/linux/release/bandwidthTest & 
+./bin/x86_64/linux/release/bandwidthTest
+cp ./bin/x86_64/linux/release/bandwidthTest ~/bin/ || true
 #nvidia-smi

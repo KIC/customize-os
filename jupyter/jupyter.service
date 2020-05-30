@@ -4,17 +4,17 @@ Description=Jupyter Notebook
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/usr/bin/jupyter-notebook --no-browser --ip=127.0.0.1
+ExecStart=/home/kic/.local/bin/jupyter notebook --no-browser --ip=127.0.0.1
 User=kic
 Group=kic
-WorkingDirectory=/home/kic/notebooks
+WorkingDirectory=/home/kic/sources
 Restart=always
 RestartSec=10
 # there's probably a better way to do this part
-Environment=PATH=/home/kic/bin:/usr/lib/cuda-10.0/bin/
-Environment=LD_LIBRARY_PATH=/usr/lib/cuda-10.0/lib64
-Environment=CUDA_HOME=/usr/lib/cuda-10.0/
-Environment=PYTHONPATH=/usr/lib/tensorflow/lib/python3.7
+#Environment=PATH=/home/kic/bin:/usr/lib/cuda-10.0/bin/
+#Environment=LD_LIBRARY_PATH=/usr/lib/cuda-10.0/lib64
+#Environment=CUDA_HOME=/usr/local/cuda
+#Environment=PYTHONPATH=/usr/lib/tensorflow/lib/python3.7
 
 [Install]
 WantedBy=multi-user.target
