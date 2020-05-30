@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo apt-get install build-essential
+
 cd /tmp
 wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
 tar -xzf ta-lib-0.4.0-src.tar.gz
