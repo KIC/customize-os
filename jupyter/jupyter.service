@@ -4,7 +4,7 @@ Description=Jupyter Notebook
 [Service]
 Type=simple
 PIDFile=/run/jupyter.pid
-ExecStart=/home/kic/.local/bin/jupyter notebook --no-browser --ip=127.0.0.1
+ExecStart=/home/kic/.local/bin/jupyter lab --no-browser --ip=127.0.0.1
 User=kic
 Group=kic
 WorkingDirectory=/home/kic/sources
